@@ -10,8 +10,30 @@ Arrays.sort() уже не требовалась. К сожалению, авт�
 Если на вход подаются массивы {0, 2, 2} и {1, 3}, то на выходе должен получиться массив {0, 1, 2, 2, 3}
  */
 
+import java.util.Arrays;
+
 public class Step24_9 {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(mergeArrays(new int[]{0, 2, 2}, new int[]{1, 3})));
+    }
+    public static int[] mergeArrays(int[] a1, int[] a2) {
 
+        int[] result = new int [a1.length + a2.length];
+        int i1 = 0;
+        int i2 = 0;
 
+        for (int i = 0; i < result.length; i++)
+        {
+            if (i2 >= a2.length || i1 < a1.length && a1[i1] < a2[i2]) {
+                result[i] = a1[i1];
+                i1++;
+            } else {
+                result[i] = a2[i2];
+                i2++;
+            }
+        }
+
+        return result;
+    }
 
 }
