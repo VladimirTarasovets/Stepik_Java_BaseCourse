@@ -47,17 +47,17 @@ public class Step24_10 {
         System.out.println(printTextPerRole(roles, textLines));
     }
     public static String printTextPerRole(String[] roles, String[] textLines) {
-        StringBuilder SB = new StringBuilder();
-        for (String role : roles) {
-            SB.append(role + ":\n");
-            for (int i = 0; i < textLines.length; i++) {
-                if (textLines[i].startsWith(role + ":")) {
+        StringBuilder SB = new StringBuilder(); // Создание результирующей строки в StringBuilder
+        for (String role : roles) { // Перевод эл-та массива roles[] в строку и прохождение по массиву roles[]
+            SB.append(role + ":\n"); // Добавление в строку ":" и переведенного эл-та массива + перевод строки
+            for (int i = 0; i < textLines.length; i++) { // Прохождение по массиву textLines[]
+                if (textLines[i].startsWith(role + ":")) {  // Цикл для проверки начала строки с текстом и ролью
                     SB.append((i + 1) + ")" + textLines[i].substring(role.length() + 1) + "\n");
                 }
             }
-            SB.append("\n");
+            SB.append("\n"); // Перевод строки, для отступа между ролями
         }
-        return SB.toString();
+        return SB.toString(); // Возвращение результата из метода типа String
     }
 
 }
